@@ -1,0 +1,9 @@
+*.debhelper.*
+*-build-stamp
+.pc
+.debhelper
+wax-leap
+tmp
+*.log
+*.substvars
+files

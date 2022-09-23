@@ -1,0 +1,13 @@
+Source: wax-leap
+Section: devel
+Priority: optional
+Maintainer: Henrik Hautakoski <henrik@eossweden.org>
+Build-Depends: debhelper (>= 12), dh-exec, git
+
+Package: wax-leap
+Section: utils
+Priority: optional
+Depends: ${shlibs:Depends}
+Architecture: amd64
+Homepage: https://github.com/cc32d9/wax-leap
+Description: Port of AnteloipeIO/Leap software to WAX blockchain

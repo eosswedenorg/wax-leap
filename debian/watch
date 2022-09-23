@@ -1,0 +1,5 @@
+version=4
+opts=mode=git,pgpmode=gittag \
+ https://github.com/cc32d9/wax-leap \
+ refs/tags/v?([\d\.]+)
+
