@@ -1,3 +1,69 @@
+wax-leap (3.1.2wax01-1ubuntu1) UNRELEASED; urgency=medium
+
+  [ Matt Witherspoon ]
+  * tar --ignore-failed-read on uploaded failure logs
+
+  [ Kevin Heifner ]
+  * GH-217 Remove debug print causing log spam
+  * GH-217 transferFunds returns None on failure
+
+  [ cc32d9 ]
+  * CMake: project( wax-leap ) and WAX in pkg description
+
+  [ Eric Passmore ]
+  * updated trace_api openapi documentation
+
+  [ Kevin Heifner ]
+  * GH-223 Remove hard-coded Test succeeded message
+  * GH-223 Wait for system init transaction to make it into a block. A test failed because it attempted to use the system contract before it was init-ed.
+
+  [ 766C6164 ]
+  * docs cleanup
+  * Fixes added link to DUNE
+  * Mandel -> EOSIO
+  * Update "an EOSIO"
+  * Fixed butchered by md plugin index
+
+  [ Eric Passmore ]
+  * general doc cleanup fixed broken links and unclosed '<'
+
+  [ 766C6164 ]
+  * Added FreeBSD build instructions
+  * Moved unsupported stuff in a separate file
+
+  [ Eric Passmore ]
+  * documentation fixes to power developer doc portal
+  * small fixes per review comments
+
+  [ Luis ]
+  * replace EOSIO refs with Antelope if applicable :doc
+  * fix existing docs.eosnetwork.com links :doc
+  * curate github and eosnetwork.com links :doc
+  * replace applicable eosio refs to antelope :doc
+  * make html comment MDX-compatible for doc6s parsing :doc
+  * add manual links to plugins API reference
+
+  [ Eric Passmore ]
+  * trace_api docs show all schemas returned
+
+  [ Kevin Heifner ]
+  * GH-229 Remove #pragma to ignore strict-aliasing warning from chain_plugin. Also removed pragma to ignore unused-variable from config.hpp. All other changes were to address the removal the ignore unused-variable.
+  * GH-229 Fix GCC strict-alias warning
+  * GH-229 Remove commented out code
+  * GH-228 Increase keosd http-max-response-time-ms for tests for slow cicd machines
+  * Mandel-301 Fix replay to correctly add trxs into the de-dup list
+
+  [ Lin Huang ]
+  * bump Leap to release/3.1.2
+
+  [ cc32d9 ]
+  * Release v3.1.2wax01
+
+  [ Henrik Hautakoski ]
+  * New Upstream Release v3.1.2wax01
+
+ -- Henrik Hautakoski <henrik@eossweden.org>  Tue, 11 Oct 2022 16:59:39 +0200
+
 wax-leap (3.1.1wax01-1) unstable; urgency=medium
 
   * New Upstream version
