@@ -1,3 +1,1156 @@
+wax-leap (3.2.0wax01-1ubuntu1) UNRELEASED; urgency=medium
+
+  [ 766C6164 ]
+  * Backported threading, session manager, unix socket
+  * Check and report error on socket close
+
+  [ Huang-Ming Huang ]
+  * add expiration config
+  * add txn-test-gen-stop-on-push-failed option
+
+  [ Chris Gundlach ]
+  * added initializers
+
+  [ 766C6164 ]
+  * SHiP post send_update to main thread to avoid overwhelming the main thread
+  * Added threaded write
+
+  [ Steven Watanabe ]
+  * port boost exception reporting.
+
+  [ Matt Witherspoon ]
+  * log db hash on start/stop with integrity-hash-on-start & integrity-hash-on-stop
+
+  [ Kevin Heifner ]
+  * get_transaction_status is not thread safe, remove from async_api handler and place in normal api handler.
+  * add_async_api was not calling correct add_async_handler. Added a multi-thread test for the only api that is using the add_async_api.
+
+  [ Matt Witherspoon ]
+  * bump main to 3.2.0-dev
+  * just use a bool to track when it's acceptable to log exit hash
+  * missed staging a rename in last commit
+  * add Mac Studio to Secure Enclave whitelist
+  * before using SE wallet require code signed with certificate
+
+  [ 766C6164 ]
+  * Make sure log gracefully destructs, fixes pruning unit test
+
+  [ UMU ]
+  * Replace hard coding system_account_name
+
+  [ Allen Han ]
+  * Initial code before testing
+  * rework the data structure after verifying with areg
+  * Add logic for user no action
+  * add unit test
+  * Correct the cpu usage
+  * Add earlier time stamp test case
+  * fixed type
+  * fixes for comments
+  * Fixes for second comments
+  * correct to_pretty_time
+
+  [ 766C6164 ]
+  * Make compatible with boost < 1.70
+  * Add comment why include_delta of code_object just returns false
+  * Pop back a delta with empty rows
+
+  [ Kevin Heifner ]
+  * Get future before use to avoid race on set_value get_future
+
+  [ Chris Gundlach ]
+  * first draft of backporting push_transaction optimizations
+
+  [ Matt Witherspoon ]
+  * move integrity-hash-on options from CLI to Cfg
+
+  [ Chris Gundlach ]
+  * test fixes
+
+  [ Matt Witherspoon ]
+  * bump fc submod to main
+
+  [ arhag ]
+  * add cleos validate signatures
+
+  [ 766C6164 ]
+  * Added ut for unix socket / fixed boolean args support for tests
+
+  [ Jonathan Giszczak ]
+  * Eliminate use of boost deprecated query object.
+
+  [ Allen Han ]
+  * Use get_raw_abi for both get cleos command and cleos transactions
+  * Improve the error handling
+  * fix pr comments and add const
+
+  [ Clayton Calabrese ]
+  * fix errors preventing building due to removed fc::optional and convert get_callback to callback.
+
+  [ Kevin Heifner ]
+  * Send handshake instead of time for heartbeat
+
+  [ Clayton Calabrese ]
+  * resolve build failures from cherry-picks.
+
+  [ Kevin Heifner ]
+  * send_handshake if we have not sent or received a block for half of heartbeat.
+  * Send handshake even if info is unchanged
+
+  [ Lin Huang ]
+  * Fix merge conflicts
+
+  [ Matt Witherspoon ]
+  * bump appbase submod to main
+
+  [ 766C6164 ]
+  * Few more missed socket related things
+
+  [ Brian Johnson ]
+  * Relaxed requirement for producer rounds having to not miss slots.
+  * Loosen transaction processing requirements till code is fixed.
+
+  [ Lin Huang ]
+  * Fix intermittent forked chain test failure
+
+  [ Chris Gundlach ]
+  * fixed conflicts
+  * fixed whitespace
+
+  [ Victor Camacho ]
+  * Added comparison operators for extended_symbol type
+  * Added extended_symbol unit test cases for test comparison operators
+
+  [ deck ]
+  * add the ability to use authority structure in the call to newaccount
+  * fix callback function
+
+  [ 766C6164 ]
+  * Fixed typo
+
+  [ Matt Witherspoon ]
+  * pick sane defaults for OPENSSL_ROOT_DIR on ARM macOS
+
+  [ Kevin Heifner ]
+  * GH-293 Add similar logging for failed and successful scheduled transactions as input transactions.
+
+  [ 766C6164 ]
+  * pending ship_client socket implementation
+
+  [ Lin Huang ]
+  * Do not check for incomplete block as it is not possible in Mandel
+
+  [ Keke Li ]
+  * Allow the test script go ahead in case of $NODEOS_PID already shutdown before call wait. As the trace information is very limit. detail see epe889, the buildkite fails are very possible wait an already terminated NODEOS_PID
+  * Add check to wait return code, if return code is 0 or 127 just let it go, in not, need stop and return the error code.
+  * Return a return code in any case for the function run_expect_success()
+  * As the wait return code is likely to be $NODEOS_PID (stopped child return code) than 127(non exist child return code), so add dealing of $NODEOS_PID
+
+  [ Patrick Raphael ]
+  * label db_modes_test as nonparallelizable_tests to fix Mac issue
+  * remove temp file
+
+  [ Lin Huang ]
+  * Revert "label db_modes_test as nonparallelizable_tests to fix Mac issue"
+  * Add additional contract to test_exhaustive_snapshot
+
+  [ Matt Witherspoon ]
+  * Merge pull request #9147 from EOSIO/two_comment_fixes
+
+  [ Jonghoo Kim ]
+  * fix get_table_rows_by_seckey conversion
+  * fix unit test
+  * added get_table_seckey_test
+  * fix unit test
+  * handled comment
+  * format a else block
+  * format
+  * removed lvalue
+
+  [ Lin Huang ]
+  * Adapt to new signature of chain_apis::read_only for trx_finality_status_processing
+
+  [ Leo Ribeiro ]
+  * adds http1.1 support and better response handling
+
+  [ Kevin Heifner ]
+  * Revert back to pretty print of response unless unable to convert to variant
+  * Better handling of invalid response
+
+  [ Jonathan Giszczak ]
+  * Add extract-blocks option to eosio-blocklog
+  * Correct type for placeholder progress lambda when libprogressbar not present
+
+  [ Keke Li ]
+  * As this function is a common used function, and the exception maybe not an error. remove the error notice line.
+
+  [ Kevin Heifner ]
+  * GH-292 Add additional logging to Produced and Received block log messages.
+  * GH-294 Add wall clock time to some existing transaction logging. Added log of time between transactions to give some information on time the chain is idle.
+
+  [ Matt Witherspoon ]
+  * separate out signature provider from producer plugin
+  * slight more optimial handling of signature_provider_for_specification return
+
+  [ Kevin Heifner ]
+  * Fix merge issues
+  * Set keosd-provider-timeout in signature_provider_plugin::plugin_initialize because make_keosd_signature_provider was capturing 0 before boost notifier was called.
+
+  [ 766C6164 ]
+  * Implemented unix socket support for ship_client
+
+  [ Clayton Calabrese ]
+  * fix test failures due to lost arg.
+
+  [ Kevin Heifner ]
+  * Start of a cfa in light validation mode test
+  * Skip context free action account verification for light validation
+  * Do not execute cfa in light validation mode
+  * Add test for cfa not executed in light validation
+  * Fix indent
+  * Use skip_trx_checks instead of skip_auth_check
+  * Simplified if
+  * Additional checks requested from PR
+
+  [ Jonathan Giszczak ]
+  * Use rename option in restart chain tests to get old trim_front behavior.
+
+  [ Brian Johnson ]
+  * Merge pull request #8218 from EOSIO/8199-cleos-transaction-signatures
+
+  [ Peter Oschwald ]
+  * GH-403 Fix a couple compilation errors from the backport merge.
+  * GH-403 - Delete inadvertently reintroduced test. Per GH-211 should be deleted.
+  * GH-403 Fix failing tests due to duplicated command args from backport merge.
+
+  [ Kevin Heifner ]
+  * GH-139 Add logs to artifacts
+  * GH-139 Fix directories of artifacts
+
+  [ Peter Oschwald ]
+  * GH-403 Fix failing tests due to publishContract param changes.
+
+  [ 766C6164 ]
+  * Cleaned up and reformatted
+
+  [ Clayton Calabrese ]
+  * fix cherry-pick build failures.
+
+  [ Qing Zhang ]
+  * introduce an option to restrict the maximum number of open HTTP RPC requests, resolve a number of merge conflicts
+
+  [ Brian Johnson ]
+  * GH-422 Merge pull request #8232 from EOSIO/8224-repeat-transaction-lr-test
+
+  [ Peter Oschwald ]
+  * GH-422 Fix log message.
+  * GH-422 Set default expiration back to 90 to allow for tests to finish.
+
+  [ Jonathan Giszczak ]
+  * Remove helpful, user-friendly, innocuous, completely optional dependency
+
+  [ Lin Huang ]
+  * manually pulled in the remaining of max requests in flight changes
+
+  [ Kevin Heifner ]
+  * GH-139 Provide unique name for each set of logs
+
+  [ Peter Oschwald ]
+  * GH-422 Fix error reporting to be in the assert printout.
+  * GH-422 Remove spaces in arguments.
+  * GH-422 Add opts back in since default was removed in Node.py.  Needed for test to pass.
+
+  [ Kevin Heifner ]
+  * GH-423 Merge pull request #9050 from EOSIO/cleos-set-code-compression-dev
+
+  [ Lin Huang ]
+  * Fix build when build path has spaces for mandel and appbase
+
+  [ Maxim Kirov ]
+  * added unit tests
+
+  [ 766C6164 ]
+  * docs cleanup
+
+  [ Lin Huang ]
+  * Change usage of fc::optional to std::optional installed version of FC does not have optional and remove discarded account_disk_deltas from expected results
+
+  [ Kevin Heifner ]
+  * Merge pull request #8847 from huangminghuang/block-replay-test
+
+  [ Clayton Calabrese ]
+  * resolve build failures from cherry-pick
+
+  [ Lin Huang ]
+  * point to main branch of wasm-spec-tests submodule
+
+  [ Kevin Heifner ]
+  * Merge pull request #8851 from huangminghuang/light-validation-sync-test
+
+  [ Victor Camacho ]
+  * GH-579 Merge pull request #8676 from EOSIO/feature/cleos-to-unpack-data-when-forming-transaction
+
+  [ Peter Oschwald ]
+  * GH-579 Fix pushMessage to allow not expecting transaction traces when using -d --dont-broadcast option
+
+  [ Clayton Calabrese ]
+  * resolve test fialures in light_validation_sync_test.
+
+  [ allenhan2 ]
+  * GH-399 Merge pull request #8931 from EOSIO/fix_sign_unpack_data
+
+  [ Peter Oschwald ]
+  * GH-399 Fix up argument list to make sure all arguments align.
+
+  [ allenhan2 ]
+  * GH-427 Merge pull request #9194 from EOSIO/trace_plugin_test
+
+  [ Peter Oschwald ]
+  * GH-427 Fix issue in getTransBlockNum where if except was None it would fail with no_block instead of returning the block number.
+
+  [ Kevin Heifner ]
+  * GH-139 Copy logs to avoid permission issues and use if: always() so they are also uploaded on test failures.
+
+  [ Peter Oschwald ]
+  * Create github workflow to create new jira issues when github issues are labeled OCI.
+
+  [ Kevin Heifner ]
+  * GH-139 Only upload logs on failure.
+  * GH-590 Fix race condition on shutdown
+  * GH-139 tar gzip up the logs for upload.
+
+  [ Lin Huang ]
+  * simplify deep_mine_tests by replacing complicated merge and match with straight-forward file saving and comparison, made possible by PR #383's fix of non-determinism of deep-mind logger
+
+  [ Huang-Ming Huang ]
+  * GH-575 Merge pull request #9208 from EOSIO/state-history-logger
+
+  [ Lin Huang ]
+  * Use fc::rename instead of our own file copy function
+
+  [ Peter Oschwald ]
+  * Update jiraIssueCreator.yml
+
+  [ Matt Witherspoon ]
+  * remove old outdated MSVC paths in cmake files
+
+  [ Lin Huang ]
+  * rebase abieos to the head of abieos submodule
+
+  [ Bucky Kittinger ]
+  * bump submod
+
+  [ Jonathan Giszczak ]
+  * Add const to local variable in extract_block_range
+
+  [ Victor Camacho ]
+  * GH-597 Merge pull request #9253 from EOSIO/feature/ship-unit-tests - WIP
+
+  [ Jonathan Giszczak ]
+  * Fix typo in log message format string.
+
+  [ Lin Huang ]
+  * Fixing compile warnings in eos-vm-oc's memory.hpp, executor.cpp, and memory.cpp
+
+  [ Jingjun Zhao ]
+  * Add test cases for cleos new option --abi-file
+
+  [ Lin Huang ]
+  * Fix a typo introduced to an assert string by accident
+
+  [ 766C6164 ]
+  * Fixes added link to DUNE
+
+  [ Chris Gundlach ]
+  * added missing abi libraries
+  * added example state_history logging config
+
+  [ 766C6164 ]
+  * Introduce and reduce ship logs
+
+  [ Chris Gundlach ]
+  * cleaned up N() to _n issues
+
+  [ 766C6164 ]
+  * Added check for block_state being empty
+  * Mandel -> EOSIO
+  * Update "an EOSIO"
+  * Fixed butchered by md plugin index
+
+  [ kimjh2005 ]
+  * GH-459 Merge pull request #9114 from EOSIO/epe-37-test-contracts-develop
+
+  [ Peter Oschwald ]
+  * GH-459 Update packages, names, paths, that have changed in mandel.cdt.
+
+  [ dimas1185 ]
+  * GH-459 Merge pull request #9390 from EOSIO/fix-test-contracts
+
+  [ 766C6164 ]
+  * Put log reduction constants inline
+  * Typo, forgot the _log
+  * Undo docs change grought after rebase to main
+
+  [ Peter Oschwald ]
+  * GH-459 Address peer review comments.
+
+  [ Chris Gundlach ]
+  * GH-597 various fixes to align with Mandel codebase
+  * GH-597 removed ship_abi from cmake
+
+  [ Kevin Heifner ]
+  * GH-625 Remove non-applicable ship tests.
+
+  [ Chris Gundlach ]
+  * re-implement state_history_tester_logs
+
+  [ Lin Huang ]
+  * fixing compile warnings in cleos main.cpp
+
+  [ Peter Oschwald ]
+  * GH-459 Maintain/add support for building test contracts with cdt v1.7.0
+
+  [ Lin Huang ]
+  * Only remove auto = getSchedule from auto getSchedule = get_schedule_subcommand{get}
+
+  [ Matt Witherspoon ]
+  * add 2019 Mac Pro to secure enclave wallet whitelist
+
+  [ Peter Oschwald ]
+  * GH-459 Maintain/add explicit support for building test contracts with cdt v1.8.0
+
+  [ Venu Kailasa ]
+  * Moved unit test from core unit tests to stand-alone unit test in producer plugin Also factored out pending_snapshot.?xx
+
+  [ Kevin Heifner ]
+  * Merge pull request #9633 from EOSIO/conr2d-allow-empty-response
+  * Merge pull request #9760 from EOSIO/opt-kh Moved packing of block in thread pool into controller.
+  * Merge pull request #8524 from EOSIO/2.0.1-security-omnibus-dev
+  * GH-461 Use new block log append method
+  * GH-461 Fix merge issues.
+  * GH-461 Fix merge issue.
+
+  [ Lin Huang ]
+  * fix break strict-aliasing rules warning
+  * fixing compile warnings in abi_tests.cpp (real bug, missing test), auth_tests.cpp, bootseq_tests.cpp, and whitelist_blacklist_tests.cpp
+  * Add capability of not genereating block log by setting option return-blocks to 0
+
+  [ Victor Camacho ]
+  * Merge pull request #9686 from EOSIO/empty_deltas_issue
+
+  [ Chris Gundlach ]
+  * took out kv references
+
+  [ dimas1185 ]
+  * Merge pull request #9915 from EOSIO/extra-data-test
+
+  [ Matt Witherspoon ]
+  * GH-439 Merge pull request #9978 from EOSIO/blob_variant_impl_to_fc
+
+  [ Peter Oschwald ]
+  * GH-439 Update fc back to main post fc update.
+
+  [ 766C6164 ]
+  * Propagate all exceptions minus system_error
+
+  [ Keke Li ]
+  * Add cleos system activate subcommand to activate a system feature. such as: cleos system activate kv_database. don't need using digest.
+  * enhance error handling
+
+  [ nickjjzhao ]
+  * GH-441 Merge pull request #9994 from EOSIO/jjz-epe584-chain-plugin-unit-tests
+
+  [ Chris Gundlach ]
+  * GH-599 backported contract deltas test
+
+  [ Clayton Calabrese ]
+  * force the plugin_http_api_test to use a custom config dir so it doesn't see a rare failure case.
+  * fix nodeos_extra_packed_data_test failure.
+  * use config dir in plugin_http_api_test
+
+  [ Peter Oschwald ]
+  * GH-441 Fix number of arguments required.
+  * Update jiraIssueCreator.yml
+  * Update jiraIssueCreator.yml
+  * Update jiraIssueCreator.yml
+  * Update jiraIssueCreator.yml
+
+  [ Matt Witherspoon ]
+  * Merge pull request #10236 from EOSIO/disable_appbase_git_describe
+
+  [ Peter Oschwald ]
+  * GH-441 Use single-header variant of the UTF.
+
+  [ Clayton Calabrese ]
+  * update head of appbase
+
+  [ 766C6164 ]
+  * added waitForTransBlock
+
+  [ Lin Huang ]
+  * update protocol feature list to match Mandel, clean up help, and remove PREACTIVATE_FEATURE as it cannot be activated via activate action
+
+  [ Chris Gundlach ]
+  * GH-599 commented out portion of test dependent on missing test contract actions
+
+  [ 766C6164 ]
+  * Stray whitespaces fixes
+
+  [ Peter Oschwald ]
+  * GH-465 Fix getClientVersion.
+
+  [ softprofe ]
+  * Merge pull request #10507 from EOSIO/keke_epe898
+
+  [ 766C6164 ]
+  * Fuxup fc_xlog vs xlog
+  * Use single string for both sockets
+
+  [ Clayton Calabrese ]
+  * update appbase to new commit
+
+  [ Kevin Heifner ]
+  * GH-447 Merge pull request #10696 from EOSIO/fwd-ref-dev
+
+  [ Peter Oschwald ]
+  * GH-447 Remove incorrect comment.
+  * GH-447 Delete duplicate call.
+
+  [ Patrick Raphael ]
+  * Merge pull request #10689 from EOSIO/pdr/EPE-9
+
+  [ 766C6164 ]
+  * One listen function, std::variant for acceptor, etc
+  * Removed check for WIN32, windows should be supported now
+  * Added comment on why non-propagating system_error
+  * Added "signature" arg to cleos
+
+  [ Clayton Calabrese ]
+  * address plugin_http_api_test failure and build failure
+
+  [ softprofe ]
+  * GH-526 Merge pull request #10727 from EOSIO/keke_epe948
+
+  [ 766C6164 ]
+  * Un-clang-format
+  * Made both acceptors work at the same time
+
+  [ Lin Huang ]
+  * Remove hardcodied list of protocol features and their digests by using get_supported_protocol_features RPC; provide account and permission options
+  * Make descriptions of options account and permission consistent
+
+  [ Chris Gundlach ]
+  * GH-599 added protocol feature activation for crypto primatives
+  * GH-599 added missing methods on test contract
+
+  [ Kevin Heifner ]
+  * Add tests for creating public key with no private key
+
+  [ Chris Gundlach ]
+  * GH-599 added abi/wasm for get_table_test
+  * GH-599 added 2 abihash deltas to expected deltas
+  * GH-599 took out debug messages
+
+  [ Lin Huang ]
+  * Add "get supported_protocol_features" subcommand to remove the need to contact the chain in the constructor of activate_subcommand which causes problems for cleos problem initialzation when the chain is offline, and a seperate get supported_protocol_features is clearer
+  * print out supported protocol features if the protocol feature to be activated is unknown
+
+  [ 766C6164 ]
+  * Added FreeBSD build instructions
+
+  [ Lin Huang ]
+  * Rewrite block_log_retain_blocks_test.py using standard test Cluster, take appropriate actions in block_log public functions when no block log mode is enabled and add corresponding unit tests, use update_head for all occasions
+  * Add chain API endpoint and cleos command to retrieve consensus parameters
+
+  [ Eric Ma ]
+  * EPE-1708 cleos sorts keys/permission_levels/waits for "cleos set account permission"
+
+  [ Eric Passmore ]
+  * general doc cleanup fixed broken links and unclosed '<'
+
+  [ Clayton Calabrese ]
+  * remote get_all_accounts, fix build failures.
+
+  [ 766C6164 ]
+  * Moved unsupported stuff in a separate file
+  * Do not unlock mutex in write_entry at all
+
+  [ Clayton Calabrese ]
+  * remove duplicate code. increase max_body_size
+
+  [ Lin Huang ]
+  * add optional parameter id to update_head and remove unnecessary logging
+
+  [ Chris Gundlach ]
+  * GH-600 backported SHiP transaction extension unit test
+
+  [ Clayton Calabrese ]
+  * remove mentions of kv_database_config.
+
+  [ Lin Huang ]
+  * Add test cases for get_consensus_parameters RPC endpoint
+
+  [ Clayton Calabrese ]
+  * fix build errors
+
+  [ 766C6164 ]
+  * Adjusted clang-format
+
+  [ Kevin Heifner ]
+  * Add snapshot-to-json command line option
+  * Address PR comments, add better description to option
+
+  [ Chris Gundlach ]
+  * GH-659 backport always populate hex_data for actions
+  * GH-659 backport tests for always populate hex_data for actions
+
+  [ Clayton Calabrese ]
+  * fix build errors
+
+  [ DU Jiaen ]
+  * Merge pull request #10821 from EOSIO/kayan_cleos_local_abi_file
+
+  [ Jonathan Giszczak ]
+  * Fix merge problem.
+  * Fix whitespace and scoping.
+  * Fix merge problem.
+  * Add optional no ccache Github workflow.  Use [no-ccache] in PR text.
+  * Add required token to search PR text in Github workflow.
+  * Forcefully uncache CMAKE_C[XX]_COMPILER_LAUNCHER cmake variables.
+  * Fixes to disabling ccache.
+
+  [ 766C6164 ]
+  * Helped clang-format manually a bit
+
+  [ Farhad Shahabi ]
+  * GH-524 Merge pull request #10635 from EOSIO/nested_container_support_set_optional
+
+  [ Chris Gundlach ]
+  * GH-524 took out irrelevant tests
+  * GH-524 removed kv test contract
+
+  [ Lin Huang ]
+  * Remove duplicate setWalletMgr and correct test title
+
+  [ Jonathan Giszczak ]
+  * Make CCACHE_DISABLE visible to docker.
+
+  [ 766C6164 ]
+  * Added indication of subjective in err msg
+  * Changed logic in description
+
+  [ Jonathan Giszczak ]
+  * Change workflow step label to something human readable.
+
+  [ 766C6164 ]
+  * Fixed lowerbound logic in doc, 5 other places
+
+  [ Lin Huang ]
+  * Replace hardcodied protocol feature names and digests with dynamically retrieved names and digests
+
+  [ Jonathan Giszczak ]
+  * Update expected error text from cleos in cli_test.
+  * Fix merge problems.
+
+  [ Clayton Calabrese ]
+  * implement json snapshot reader
+
+  [ Lin Huang ]
+  * return the error from the contract itself in the transaction trace log message for asserts
+
+  [ Clayton Calabrese ]
+  * remove vestigial function 'has_section'
+  * add json_snapshot to snapshot_suites so that the json_snapshot is being tested.
+
+  [ Chris Gundlach ]
+  * re-compiled nested_container test contract
+  * removed kv test
+
+  [ Clayton Calabrese ]
+  * fix test failures due to updated deferred_test.wasm
+
+  [ Jonathan Giszczak ]
+  * Replace cleos local abi file test with test harness version.
+
+  [ Chris Gundlach ]
+  * added transaction trace plugin
+
+  [ Jonathan Giszczak ]
+  * Move cli_test to nonparallelizable_tests.
+
+  [ Clayton Calabrese ]
+  * update wasm and abi to current cdt
+  * abi files updated. Add script to bring back abi and wasm changes to source.
+  * remove helper script
+
+  [ Areg Hayrapetian ]
+  * Update fc submodule.
+
+  [ Matt Witherspoon ]
+  * grab bag of warning fixes
+
+  [ Chris Gundlach ]
+  * GH-524 cleaned up whitespace
+  * added check for testSuccessful
+
+  [ Matt Witherspoon ]
+  * bump fc submod to that with hash warning fixes
+
+  [ Jonathan Giszczak ]
+  * Remove commented code.
+  * Add flag to prevent inadvertent resource monitor shutdown during test.
+
+  [ Lin Huang ]
+  * make sure code name exists before using it, replace hardcoded ACT_FEATURE_DEFAULT_LIMIT and ACT_FEATURE_CURRENT_EXPECTED_TOTAL
+
+  [ Clayton Calabrese ]
+  * change so json snapshot reader doesn't put entire stream in memory. merge snapshot and jsonsnapshot code handling
+  * run beast_http and common through clang format.
+
+  [ Eric Passmore ]
+  * documentation fixes to power developer doc portal
+
+  [ Lin Huang ]
+  * added contract name and action name to the log; made a common function for the functionalities; used FC format_string and top_message
+
+  [ Clayton Calabrese ]
+  * move trace api plugin activation out of tests and into cluster. Default to trace-no-abi unless otherwise specified in a test
+
+  [ Matt Witherspoon ]
+  * bump fc submod to main with hash warning fixes
+  * revert token test's asset warning fix for now
+
+  [ Clayton Calabrese ]
+  * modify header comment for kv_config to explain that kv_database_config is not in use and will be removed as a larger effort for snapshot v7 when that ocmes.
+
+  [ Eric Passmore ]
+  * small fixes per review comments
+
+  [ Matt Witherspoon ]
+  * bump fc submod for fc::array<> from_variant warn fix
+  * bump fc submod to main with fc::array<> from_variant warn fix
+
+  [ Jonathan Giszczak ]
+  * Pin Github action skip-workflow at current v1.1.1 tag's commit hash.
+
+  [ 766C6164 ]
+  * Update graylisted and checktime() msgs
+  * Do not generate assert msg when bot asserting
+
+  [ Clayton Calabrese ]
+  * switch over to rapidjson from fc::json for the json snapshot reader.
+  * cleanup comment and newlines.
+
+  [ Lin Huang ]
+  * Call get_detailed_contract_exception_info only inside log statement, remove use of fc::string and fc::unsigned_int, and better format the logging message
+
+  [ Clayton Calabrese ]
+  * add back accidental deletions from large-lib-test
+  * fix new test by removing trace_api_plugin from it.
+
+  [ Lin Huang ]
+  * change action:: to action: in the log
+
+  [ Kevin Heifner ]
+  * GH-771 Modify --snapshot option to determine json by extension instead of adding a new option. Improved memory usage so current WAX snapshot can be supported. Modified the JSON output so that table rows are an array which reduces file size and memory usage. Put rapidjson inside an eosio_rapidjson namespace to avoid ODR issues. Change CMakeLists to not compile rapidjson but only include it as it is a header only library.
+
+  [ Lin Huang ]
+  * Create a benchmarking framework and use it to benchmark crypto primitives
+  * benchmark: change printt_header to print_header
+  * benchmarking: make private key of k1 signing fixed
+
+  [ Clayton Calabrese ]
+  * update save json for snapshot test due to design change.
+  * write rapidjson snapshot validity test case.
+  * change rapidjson to interface library in cmakelist
+
+  [ Kevin Heifner ]
+  * Mandel-297 Refactor producer_plugin to consolidate controller push_transaction and logging calls.
+  * Reorder logging to be consist with other logging.
+
+  [ Clayton Calabrese ]
+  * move namespace collosion for rapidjson to top of include list to prevent possible collision. Rename rapidjson in libraries.
+
+  [ Lin Huang ]
+  * leap: bump FC version to fix sha3.hpp compile error when Boost 1.79 is used
+
+  [ Matt Witherspoon ]
+  * remove boost::thread usage
+  * remove deceptive print() that's always an error
+  * use contracts & abi files in the builddir
+  * use makedirs() to ensure success if var/ doesn't exist
+
+  [ Lin Huang ]
+  * k1 siging benchmarking: do not benchmark canonical case
+  * hash benchmarking: add sha1, sha256, sha512, and ripemd160
+  * benchmarking: add blake2 and remove unnecesary include header files
+  * blake2_benchmarking: correct the feature name from black2 to blake2
+
+  [ Kevin Heifner ]
+  * GH-18 Update max-scheduled-transaction-time-per-block-ms description to indicate it also includes time for incoming transactions according to the incoming-defer-ratio.
+
+  [ Lin Huang ]
+  * fix compile warnings in trace_api_plugin
+  * Fix control reaches end of non-void functionwarning in deep_mind.cpp
+  * Fix use of deprecated set_abi warning in abi_serializer.cpp
+  * trace_api_plugin.cpp: remove trace_api_plugin_impl::set_program_options
+  * Fix unused variable warning in auth_tests.cpp
+  * Fix sign compare warning in producer_plugin.cpp
+
+  [ 766C6164 ]
+  * Scaffold, putting cli11 subcommands in separate files
+
+  [ Kevin Heifner ]
+  * Fix for channels::transaction_ack not always being called on expired or invalid signature transactions.
+  * Consolidate more logging into log_trx_result method.
+  * Factor out calls to process_incoming_transaction_async to better handle unapplied_transaction_queue handling. Also use unapplied_transaction_queue iterator to avoid trying the same incoming transaction twice in start block.
+
+  [ 766C6164 ]
+  * Added autocompletion for bash
+
+  [ Lin Huang ]
+  * change long remaining = loc; to auto remaining = loc; to keep the type consistent
+
+  [ Kevin Heifner ]
+  * Cleanup from peer review comments
+
+  [ Jonathan Giszczak ]
+  * Convert regression test framework into a Python package and update tests
+
+  [ Kevin Heifner ]
+  * Additional cleanup for peer review
+  * Add auth to log
+
+  [ Clayton Calabrese ]
+  * temporarily point fc at branch to test in CI
+
+  [ Matt Witherspoon ]
+  * remove nonworking Secure Enclave support from signature_provider_plugin
+  * remove YubiHSM support from keosd
+  * replace git commands from nodeos & launcher with libversion
+  * remove libraries/yubihsm submodule index I missed
+  * cleanup license file handling
+
+  [ Clayton Calabrese ]
+  * remove merge doubling of code
+
+  [ Matt Witherspoon ]
+  * faster builddir upload & separate leap-dev job for quicker builds
+
+  [ Henrik Hautakoski ]
+  * plugins/chain_api_plugin/chain.swagger.yaml: rename get_scheduled_transaction to get_scheduled_transactions (notice the trailing "s") as get_scheduled_transaction does not exist.
+
+  [ Clayton Calabrese ]
+  * allow new snapshot json test to pass when using multiple threads
+
+  [ Matt Witherspoon ]
+  * run non-parallel tests in parallel via containers
+
+  [ Clayton Calabrese ]
+  * delete snapshots from json_snapshot_validity_test
+
+  [ Matt Witherspoon ]
+  * move tests that are sub 3 minutes out of long running classification
+
+  [ Clayton Calabrese ]
+  * retarget fc to main again
+
+  [ Kevin Heifner ]
+  * Remove hardcoded 10ms limit for chain_api_plugin calls and instead honor http-max-response-time-ms.
+
+  [ Matt Witherspoon ]
+  * fix ship_client on boost 1.67-1.69
+
+  [ Kevin Heifner ]
+  * Use http-max-response-time for limit on complete run of http call including time for main thread and http thread. Puts limit on complete execution including conversion to JSON.
+  * Add support for time_limit_ms to API endpoints: get_activated_protocol_features, get_table_rows, get_table_by_scope, get_producers, get_scheduled_transactions
+  * Support -1 for http-max-response-time-ms for unlimited.
+
+  [ Clayton Calabrese ]
+  * undo changes to nodeos for json snapshots.
+
+  [ Matt Witherspoon ]
+  * desubmodule AntelopeIO/wasm-spec-tests@112c682
+  * tweaks to CMakeLists & removal of discrete LICENSE now that desubmoduled
+
+  [ 766C6164 ]
+  * +=blocklog, initial raw port
+  * +=actions_blocklog
+  * remove accidental clang-format checkin lol
+  * Define cli option for displaying lots of help
+  * Added boilerplate for snapshot subcommand
+
+  [ Henrik Hautakoski ]
+  * .gitignore: Don't ignore package.cmake
+  * package.cmake: Proper setup .deb filename in CPACK_DEBIAN_FILE_NAME variable.
+  * package.cmake: use CPACK_DEBIAN_FILE_NAME when setting CPACK_DEBIAN_BASE_FILE_NAME
+
+  [ Matt Witherspoon ]
+  * Revert "remove YubiHSM support from keosd"
+  * bump abieos submodule to branch with 2.0/3.1 ship fixes
+  * bump abieos submodule to refreshed 2.0/3.1 fix branch
+  * bump abieos submodule to main with 2.0/3.1 ship fixes
+
+  [ Kevin Heifner ]
+  * GH-119 Track and report block idle time and trx times per block for produced and speculative blocks
+
+  [ 766C6164 ]
+  * Added handling of return code
+
+  [ Kevin Heifner ]
+  * GH-119 Refactor trx idle time calculation. Track and report failed/successful trx #/time.
+  * GH-119 Move idle reporting into on_incoming_transaction_async
+
+  [ Clayton Calabrese ]
+  * use pid to avoid collision in snapshot tests when running multithreaded.
+
+  [ Kevin Heifner ]
+  * GH-134 Use file under temp dir.
+  * GH-119 Move log of every failed trx to transaction_failure_tracing logger.
+
+  [ Henrik Hautakoski ]
+  * package.cmake: set CPACK_DEBIAN_PACKAGE_ARCHITECTURE instead of DEB_ARCH.
+
+  [ Matt Witherspoon ]
+  * no longer need submodules during test
+  * move wasm-spec-tests to unittest directory
+
+  [ Kevin Heifner ]
+  * GH-149 Add 3-strike rule to speculative blocks.
+
+  [ Matt Witherspoon ]
+  * fix two signed/unsigned warnings in json snapshot reader
+
+  [ Kevin Heifner ]
+  * GH-118 Revert back to not automatically unpacking action data. Instead only unpack action data when explicitly aksed via --unpack-action-data option.
+  * GH-118 Update test case for unpacked-action-data option. Also add new test case expecting default of packed action data.
+
+  [ 766C6164 ]
+  * Moved cli11 in interface only lib, adjusted cleos and leap-util to use it
+  * Added bash-complete scripts for both leap-util and cleos
+  * Simplified makefile
+  * Linting and cleanup
+
+  [ Matt Witherspoon ]
+  * move parallel tests to 'hightier' runner
+
+  [ Kevin Heifner ]
+  * GH-119 Cleanup const use.
+
+  [ Peter Oschwald ]
+  * Remove initial_chain_id in genesis.json as it is not supported. A remnant of long ago...
+
+  [ Matt Witherspoon ]
+  * commit package-lock.json to ensure reproducibility of dist/ generation
+
+  [ Eric Passmore ]
+  * updated swagger for http production producer plugin
+
+  [ Matt Witherspoon ]
+  * move NP&LR test population into action; fix action zstd on u18
+  * only give package write permission to single job that requires it
+  * enable CI testing on more platform combinations
+
+  [ Kevin Heifner ]
+  * GH-174 Do not apply 3-strike rule when subjective billing is disabled or if read-only transaction.
+  * GH-174 Do not track failures when subjective enforcement disabled otherwise it can affect trxs outside of those failures
+  * GH-109 No reason to store expiration
+  * GH-109 Add lower_bound(trx_id)
+  * GH-109 Add /v1/chain/get_unapplied_transactions endpoint to producer_api_plugin
+
+  [ Eric Passmore ]
+  * added get_unapplied_transactions to openapi docs
+
+  [ 766C6164 ]
+  * Updated CLI11 header to the latest
+
+  [ Matt Witherspoon ]
+  * label new issues with 'triage' label and add them to org project
+
+  [ 766C6164 ]
+  * Added chain subcomand, refactoring, bugfixes
+
+  [ Eric Passmore ]
+  * updated schema references to eosnetwork host
+
+  [ Matt Witherspoon ]
+  * add missing incoming_persisted in get_trx_type
+  * remove elog when ship thread exits
+
+  [ Luis ]
+  * replace EOSIO refs with Antelope if applicable :doc
+  * fix existing docs.eosnetwork.com links :doc
+  * curate github and eosnetwork.com links :doc
+  * replace applicable eosio refs to antelope :doc
+  * make html comment MDX-compatible for doc6s parsing :doc
+  * add manual links to plugins API reference
+
+  [ Kevin Heifner ]
+  * GH-139 Use Python 3.5+ feature of capturing stderr in CalledProcessError
+  * GH-139 Use Python 3.5+ feature of capturing stderr in CalledProcessError
+  * GH-186 Log std::exception for http calls at debug level.
+
+  [ Eric Passmore ]
+  * Updated docs for openapi /v1/trace_api
+  * updated trace_api openapi docs
+
+  [ Matt Witherspoon ]
+  * always run the long running tests -- including for PRs
+
+  [ 766C6164 ]
+  * Multiple changes
+  * Removet leftovers of genesis from chain-state sc
+
+  [ Kevin Heifner ]
+  * GH-209 Add information about log levels
+  * GH-209 log levels not debug levels
+
+  [ Eric Passmore ]
+  * updated schema for trace_api openapi
+
+  [ Kevin Heifner ]
+  * GH-209 PR feedback
+
+  [ Matt Witherspoon ]
+  * desubmodule AntelopeIO/fc@6f9fc55
+  * addtional minimal changes to get fc fully built & test after desubmod
+
+  [ 766C6164 ]
+  * Added bash-completions configs to leap-util and cleos
+
+  [ Matt Witherspoon ]
+  * misc cmake cleanup & discrete license removal to fc desubmod
+
+  [ Eric Passmore ]
+  * trace_api docs show all schemas returned
+
+  [ Matt Witherspoon ]
+  * "null out" iostream's library dependencies on macOS
+  * avoid redefining _mm_crc32_u64
+  * remove alternate k1 impls
+  * manually set PKG_CONFIG_PATH for openssl on macOS
+
+  [ Kevin Heifner ]
+  * GH-229 Remove additional unused variables in 3.2
+
+  [ Lin Huang ]
+  * disable unused-function warning in secp256k1
+
+  [ Matt Witherspoon ]
+  * bump chainbase submod to branch with more log context on load/write
+  * bump chainbase submod to main with more log context on load/write
+
+  [ Luis ]
+  * remove line wraps, no need for docs :doc
+  * make first sentence summary for each log level :doc
+  * split log level info into bullets and minor edits :doc
+
+  [ Lin Huang ]
+  * more compiler warnings cleanup
+  * remove bad_alloc from FC_LOG_AND_DROP; use __builtin_unreachable to surpress warning in elliptic_webauthn.cpp to aviod potentially breaking consensus
+
+  [ 766C6164 ]
+  * Addressing feedback, part one
+  * Replaced hardcoded leap-util name with var
+  * Ditched ilog, added constraints
+
+  [ Lin Huang ]
+  * reenable warnings for softfloat and wasm-jit, and fix a warning in wasm-jit
+
+  [ 766C6164 ]
+  * Cleaned-up some of block-log stuff
+  * +=constraint for sc
+  * install path fix
+
+  [ Lin Huang ]
+  * bump softfloat submodule to branch with warning fixes
+
+  [ Kevin Heifner ]
+  * Fix some warnings
+  * GH-231 Do not log or subjective bill for duplicate trxs
+
+  [ Lin Huang ]
+  * remove _DEBUG and related code
+  * add back a statement accidentally removed by commit 60e0ad1ec2c4eaf06c0aff90d662dd6eef986d31
+  * update libff submodule to branch with warning fixes
+
+  [ 766C6164 ]
+  * Initialize all subcommands flags to false
+
+  [ Lin Huang ]
+  * fix indentation
+
+  [ Matt Witherspoon ]
+  * initialize slice_directory::index_header::version
+
+  [ Lin Huang ]
+  * bump abieos submodule to branch with warning fixes
+
+  [ Clayton Calabrese ]
+  * change name of waitForTransInBlock and add waitForTransactionsInBlock which takes multiple transactions
+
+  [ Lin Huang ]
+  * bump Leap to 4.0.0-dev
+  * bump Leap to 3.2.0-rc1
+
+  [ Kevin Heifner ]
+  * GH-312 Add total elapsed and total time to received block log output. Updated scheduled transaction trace elapsed to include more of the execution time. Renamed produced block log output conf to confirmed to match received block log output.
+  * GH-312 Add if for receipt
+  * GH-324 Revert to 3.1 behavior of always returning http application/json for everything including all errors.
+  * GH-324 Always return json, not an empty body.
+
+  [ 766C6164 ]
+  * Refactoring of block-log subcommand
+  * Added print-log, unified subcommand handlers
+  * Cleanup
+  * Generalize initialization
+  * Changed default error handler to print help
+
+  [ Zach Butler ]
+  * Fix hyperlinks for new release
+
+  [ Luis ]
+  * update or add plugin description in yaml files :doc
+  * replace eosio.version.in with leap.version.in :doc
+  * remove old docs.json file, not used anymore :doc
+  * replace eos.io with antelope.io in eos.doxyfile.in :doc
+  * Revert "replace eosio.version.in with leap.version.in :doc"
+  * fix project name and number in eos.doxygen.in :doc
+
+  [ Luis Paris ]
+  * Merge pull request #358 from AntelopeIO/fix-devrel#71-3.1
+
+  [ 766C6164 ]
+  * Updated cli11, enable LeapFormatter for both cleos/leap-util
+
+  [ Matt Witherspoon ]
+  * restore secp256k1 library in to dev component install()
+  * fix threading violation on state_history shutdown
+
+  [ 766C6164 ]
+  * Comment changed
+  * Updated to CLI11/main
+
+  [ Lin Huang ]
+  * update libfc path in EosioTesterBuild.cmake.in for building tests in CDT and System Contracts
+  * bump Leap to 3.2.0-rc2
+
+  [ Matt Witherspoon ]
+  * change the HTTP Server header to be nodeos/keosd version
+
+  [ Lin Huang ]
+  * compute_transaction: add --dry-run, deprecate --read-only, and sign a transaction only when --sign-with is provided
+  * Do not change the behavior of existing --read-only that transactions by --read-only will be signed by default
+  * bump Leap to 3.2.0
+
+  [ cc32d9 ]
+  * Release v3.2.0wax01
+
+  [ Henrik Hautakoski ]
+  * New Upstream Release v3.2.0wax01
+
+ -- Henrik Hautakoski <henrik@eossweden.org>  Wed, 30 Nov 2022 13:10:04 +0100
+
 wax-leap (3.1.3wax01-1ubuntu1) UNRELEASED; urgency=medium
 
   [ Kevin Heifner ]
