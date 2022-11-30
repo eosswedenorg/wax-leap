@@ -1,3 +1,200 @@
+wax-leap (3.1.3wax01-1ubuntu1) UNRELEASED; urgency=medium
+
+  [ Kevin Heifner ]
+  * GH-274 Cleanup and provide more time before fork resolution
+  * GH-251 Fix corner case around test_control_plugin missing a slot. Simplified implementation by using slot directly instead of counting produced blocks.
+  * GH-252 Allow 5ms instead of 2ms for checktime to trigger and trace to be created.
+  * GH-252 Allow 10ms instead of 5ms for checktime to trigger and trace to be created.
+
+  [ Zach Butler ]
+  * Make statement about branches a complete sentence
+  * Change "Repo Organization" to "Branches"
+  * Write "Binary Installation" section
+  * Rename "Software Installation" to "Source Installation"
+  * Add "nodeos --full-version" after binary installation
+  * Add example output from "nodeos --full-version"
+  * Write up an intro paragraph for "Source Installation"
+  * Rename "Building From Source" to "Prerequisites"
+  * Roll "a few other requirements" into the main list
+  * Move the statement about supported operating systems back into the "Prerequisites" section
+  * Give the jobs flag warning its own section
+  * Update the parallel compilation warning
+  * Put parallelization warning on its own line
+  * Add unicode warning symbol to parallelization warning
+  * Make the "pinned" vs. "unpinned" build explanantion its own section
+  * Expand on pinned versus unpinned builds
+  * Add a note about the etymology of "pinned" and "unpinned"
+  * Add git to list of prerequisites
+  * Add instructions to checkout the repo, choose a branch/tag, and make sure it is up-to-date
+  * Make the "Pinned vs. Unpinned" section the intro to the "Build" instructions
+  * Rename "Building Pinned Build Binary Packages" to "Pinned Build"
+  * Make the docker sudo comment a bullet point
+  * Update the pinned build instructions
+  * Rename "Manual (non "pinned") Build Instructions" to "Unpinned Build"
+  * Simplify folding group names
+  * The unpinned code blocks are in BASH
+  * Remove the submodule update from unpinned build instructions since we added it to the prerequisites
+  * Use idempotent commands, where possible
+  * Separate aptitude commands
+  * Aptitude requires superuser if you aren't in docker
+  * Split boost out from the other dependencies since it is called out separately
+  * Comma
+  * Use all but two cores/threads for unpinned builds
+  * Support $HOME paths with spaces in them...
+  * Remove line continuations
+  * Whitespace
+  * Use pushd and popd
+  * Have curl fail on errors
+  * Clarify docker sudo message
+  * Add example navigating to downloads folder
+  * Clarify "they" when referring to clone types
+  * Use the full OS name
+  * Include the Ubuntu codenames to give people building on Ubuntu derivatives a chance
+  * Don't pipe curl into things
+  * Put Boost download in the downloads folder
+  * Suppress prompts from aptitude
+  * Clarify unpinned instructions
+  * Note that the Boost download can be deleted after installation
+  * Rename "Running Tests" to "Test"
+  * Expand description of test suites
+  * Write about parallelizable tests
+  * Write about WASM spec tests
+  * Write about serial tests
+  * Write about long-running tests
+  * Write about "make install"
+  * Add the note about docker containers with sudo to the Ubuntu unpinned instructions
+  * "implement" is singular in this case because we are referring to a plural set (node software and supporting tools)
+  * If we recommend /deps for the dependencies folder in the README, we should ignore it
+  * Change "this" to "it" when talking about main so the message makes sense on release branches
+  * Explain how to determine what version of Ubuntu a derivative distro was built from
+  * Update aptitude before trying to install our binary
+  * Suggest installing the binary you built before using "make install"
+  * Remove "notable"
+  * Use "git fetch" to make sure new tags are available locally
+  * Use a fake tag in the BASH code so it errors out if someone is blindly copy/pasta-ing
+  * Revert "Add a note about the etymology of "pinned" and "unpinned""
+  * Expand on "pinned" so maybe it clicks for some people
+  * Revert "Use all but two cores/threads for unpinned builds"
+  * Remove remaining "all cores except two" references
+  * Add "-all" and "--tags" to "git fetch"
+  * Remove "print out"
+
+  [ Kevin Heifner ]
+  * GH-346 Fix log statement
+
+  [ Zach Butler ]
+  * Rename "Source Installation" to "Build and Install from Source"
+  * Make the supported operating systems a proper list in its own section and reference it from other sections
+  * Sort new to old
+  * Include codenames so people building with Ubuntu derivatives have a chance
+  * Link to README
+  * A comma
+
+  [ Kevin Heifner ]
+  * GH-291 Remove skip_recording of transactions in dedup list when replaying. The optimization provides little real-world measurable difference but can cause differences if replay is interrupted.
+
+  [ Luis ]
+  * replace eos.io refs to eosnetwork.com in yaml files :doc
+  * update or add plugin description in yaml files :doc
+  * replace eosio.version.in with leap.version.in :doc
+  * remove old docs.json file, not used anymore :doc
+  * replace eos.io with antelope.io in eos.doxyfile.in :doc
+
+  [ Zach Butler ]
+  * Use shell globbing that is compatible with binary naming schema on all branches
+  * Consolidate the statements about using sudo in docker
+  * Remove old reference to "all but two" CPUs
+  * Change "two" to "multiple" because this could be true of more than two VMs
+  * Expand on what the dependencies folder is for
+  * Customers will care about the packages, not the raw binaries
+  * Add links to the README.md from the build documentation without changing existing section headers
+
+  [ Kevin Heifner ]
+  * GH-291 - Restore not logging promoting proposed schedule log during replay.
+
+  [ Luis ]
+  * add style/grammar/sentence edits to leap section :doc
+  * add style/grammar/sentence edits to branches section :doc
+  * add style/grammar/sentence edits to supported os section :doc
+  * add style/grammar/sentence edits to binary install section :doc
+  * add style/grammar/sentence edits to step 1 clone section :doc
+  * add style/grammar/sentence edits to step 2 tag or branch section :doc
+  * add style/grammar/sentence edits to step 3 build source section :doc
+  * add style/grammar/sentence edits to step 3a pinned build section :doc
+  *  add style/grammar/sentence edits to step 3b unpinned build section :doc
+  * add style/grammar/sentence edits to step 4 test section :doc
+  * add style/grammar/sentence edits to step 5 install section :doc
+
+  [ Zach Butler ]
+  * Words beginning with vowel sounds are preceeded by "an"
+  * Only titles are uppercase, in quotes for short works; lowercase reference which are not titles
+  * Restore elipses when a sentence is interrupted
+  * Simplify HTTPS vs. SSH header
+  * You can push code to repos with SSH or HTTPS
+  * Simplify Pinned vs. Unpinned Build section header
+  * Put the "Pinned vs. Unpinned Build" note in a quote block
+  * Move the jobs flag warning from the prerequisites/select branch section into the build section
+  * Put jobs flag warning into a quote box
+  * Restore the word "code"
+  * Simplify clone header
+  * Replace "Select" with "Checkout" and capitalize section header
+  * Simplify build section header
+  * Use dashes for "step" headers
+  * Simplify note about warning
+  * Use absolute URIs in the /docs folder
+  * Update references to jobs flag warning in /docs
+  * Make the docker sudo message a nice looking quote block like the other notices
+
+  [ Luis ]
+  * fix small typo and small cosmetic change :doc
+
+  [ Kevin Heifner ]
+  * GH-290 clear expired transactions before generating snapshot or integrity hash.
+
+  [ Luis ]
+  * Revert "replace eosio.version.in with leap.version.in :doc"
+  * fix project name and number in eos.doxygen.in :doc
+
+  [ Zach Butler ]
+  * Change "%2f" to a literal forward slash ('/')
+  * Change "release tag" to "release"
+  * Remove duplicate use of "compile"
+  * Rephrase the jobs flag warning without using the word "parallelization"
+
+  [ Kevin Heifner ]
+  * GH-291 Remove unused variable
+
+  [ Clayton Calabrese ]
+  * add a waring level message occasionally when transactins are being dropped due to high traffic.
+  * fix wlog message in net_plugin about high traffic causing dropped transactions.
+
+  [ Kevin Heifner ]
+  * GH-235 Use elog instead of wlog when resource_monitor logs exceeded threshold info.
+
+  [ Lin Huang ]
+  * bump Leap to release/3.1.3
+
+  [ Henrik Hautakoski ]
+  * package.cmake: Packages in the "CPACK_DEBIAN_DEV_PACKAGE_DEPENDS" variable should be separated by commas and not semicolon.
+
+  [ Kevin Heifner ]
+  * GH-419 Previous fix for test was incomplete in that the validateTrxState needed to be updated for IN_BLOCK
+  * GH-419 Update to address PR comments. Revert to explicit present.
+  * GH-419 Improve assertion message by including both expected states.
+  * GH-485 Use net_plugin_impl logger instead of default logger
+
+  [ Guillaume Babin-Tremblay ]
+  * Added validation of plugin configuration for deep-mind
+
+  [ cc32d9 ]
+  * Release v3.1.3wax01
+
+  [ Henrik Hautakoski ]
+  * package.cmake: Packages in the "CPACK_DEBIAN_DEV_PACKAGE_DEPENDS" variable should be separated by commas and not semicolon.
+  * New Upstream Release v3.1.3wax01
+
+ -- Henrik Hautakoski <henrik@eossweden.org>  Wed, 30 Nov 2022 12:53:03 +0100
+
 wax-leap (3.1.2wax01-1ubuntu1) UNRELEASED; urgency=medium
 
   [ Matt Witherspoon ]
