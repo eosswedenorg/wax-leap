@@ -1,3 +1,64 @@
+wax-leap (3.1.4-wax01-1ubuntu1) UNRELEASED; urgency=medium
+
+  [ Kevin Heifner ]
+  * GH-430 Fix race on kill of bridge node at producerk. Also removed some unneeded waits on blocks.
+  * GH-535 Do not run maintenance task on shutdown
+  * GH-535 Add log of shutdown complete.
+  * GH-525 Interrupt speculative start_block when a block is received
+  * GH-525 Use received block as interrupt for start_block when in speculative mode. Use deadline when in production mode.
+  * GH-525 Fixed spelling of yield
+  * GH-525 Minor cleanup
+  * GH-525 Honor deadline if we can produce
+
+  [ Eric Passmore ]
+  * fixes producer plugin docs
+  * fixed component paths on openapi docs
+  * added 4xx return codes as required by redocly linter
+  * paused returns boolean, pause does not
+  * updated version tag
+
+  [ Kevin Heifner ]
+  * GH-525 Make forkdb thread-safe
+  * GH-525 Remove unused block channel.
+  * GH-525 Move scope_exit of schedule_production_loop since any call should restart block because speculative block may have been interrupted.
+  * GH-525 Use shared_mutex to allow multiple readers
+  * GH-525 Only interrupt start_block for validated block_header.
+  * GH-525 Minor cleanup from PR comments.
+  * GH-525 Add open_impl/close_impl so all methods of fork_database follow the same pattern.
+  * GH-525 Remove unused incoming::channels::transaction
+
+  [ Luis ]
+  * minor edits and spelling corrections :doc
+  * fix minor sentence contructions :doc
+  * fix another small type that slipped :doc
+  * update chain plugin options :doc
+  * update http plugin options :doc
+  * update net plugin options :doc
+  * update producer plugin options and minor edits :doc
+  * update resource monitor plugin options and minor edits :doc
+  * update state history plugin options :doc
+  * remove unsupported history plugin docs :doc
+  * rename eos.io to example.org in net plugin help :doc
+
+  [ Eric Passmore ]
+  * removed datatypes from descriptions
+
+  [ Kevin Heifner ]
+  * GH-605 Remove no_retry code from connect that was already in resolve_and_connect. connect is only called by resolve_and_connect. The no_retry code in connect didn't have the newly added re-connect for duplicate.
+  * GH-525 Add check for existing to be consistent
+  * GH-525 rename start_block_interrupted to should_interrupt_start_block
+
+  [ Lin Huang ]
+  * bump Leap release to 3.1.4
+
+  [ cc32d9 ]
+  * Release v3.1.4wax01
+
+  [ Henrik Hautakoski ]
+  * New Upstream Release v3.1.4wax01
+
+ -- Henrik Hautakoski <henrik@eossweden.org>  Tue, 24 Jan 2023 11:21:07 +0100
+
 wax-leap (3.1.3wax01-1ubuntu1) UNRELEASED; urgency=medium
 
   [ Kevin Heifner ]
