@@ -1,3 +1,13 @@
+wax-leap (3.1.4-wax02-1ubuntu1) UNRELEASED; urgency=medium
+
+  [ cc32d9 ]
+  * Release v3.1.4wax02
+
+  [ Henrik Hautakoski ]
+  * New Upstream Release v3.1.4wax02
+
+ -- Henrik Hautakoski <henrik@eossweden.org>  Mon, 27 Feb 2023 18:25:35 +0200
+
 wax-leap (3.1.4-wax01-1ubuntu1) UNRELEASED; urgency=medium
 
   [ Kevin Heifner ]
