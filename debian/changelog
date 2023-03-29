@@ -1,4 +1,4 @@
-wax-leap (3.2.2wax01-1ubuntu1) UNRELEASED; urgency=medium
+wax-leap (3.2.2wax01-1ubuntu1) bionic; jammy; urgency=medium
 
   [ Kevin Heifner ]
   * GH-631 Update preKill info since waiting for producer to change before continuing.
@@ -101,7 +101,7 @@ wax-leap (3.2.2wax01-1ubuntu1) UNRELEASED; urgency=medium
 
  -- Henrik Hautakoski <henrik@eossweden.org>  Thu, 23 Mar 2023 11:25:54 +0100
 
-wax-leap (3.2.1wax01-1ubuntu1) UNRELEASED; urgency=medium
+wax-leap (3.2.1wax01-1ubuntu1) bionic; jammy; urgency=medium
 
   [ Kevin Heifner ]
   * GH-430 Fix race on kill of bridge node at producerk. Also removed some unneeded waits on blocks.
@@ -176,7 +176,7 @@ wax-leap (3.2.1wax01-1ubuntu1) UNRELEASED; urgency=medium
   * Release v3.2.1wax01
 
 
-wax-leap (3.2.0wax01-1ubuntu1) UNRELEASED; urgency=medium
+wax-leap (3.2.0wax01-1ubuntu1) bionic; jammy; urgency=medium
 
   [ 766C6164 ]
   * Backported threading, session manager, unix socket
@@ -1329,7 +1329,7 @@ wax-leap (3.2.0wax01-1ubuntu1) UNRELEASED; urgency=medium
 
  -- Henrik Hautakoski <henrik@eossweden.org>  Wed, 30 Nov 2022 13:10:04 +0100
 
-wax-leap (3.1.3wax01-1ubuntu1) UNRELEASED; urgency=medium
+wax-leap (3.1.3wax01-1ubuntu1) bionic; jammy; urgency=medium
 
   [ Kevin Heifner ]
   * GH-274 Cleanup and provide more time before fork resolution
@@ -1526,7 +1526,7 @@ wax-leap (3.1.3wax01-1ubuntu1) UNRELEASED; urgency=medium
 
  -- Henrik Hautakoski <henrik@eossweden.org>  Wed, 30 Nov 2022 12:53:03 +0100
 
-wax-leap (3.1.2wax01-1ubuntu1) UNRELEASED; urgency=medium
+wax-leap (3.1.2wax01-1ubuntu1) bionic; jammy; urgency=medium
 
   [ Matt Witherspoon ]
   * tar --ignore-failed-read on uploaded failure logs
