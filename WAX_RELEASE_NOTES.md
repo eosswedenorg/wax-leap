@@ -106,3 +106,8 @@ Merged with Leap 3.1.2
 
 Merged with Leap 3.1.3
 
+## Release `v3.1.3wax02`
+
+fix tester genesis date
+
+
