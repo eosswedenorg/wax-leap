@@ -1,3 +1,13 @@
+wax-leap (3.1.3wax02-1) UNRELEASED; urgency=medium
+
+  [ Aaron Caswell ]
+  * [120d45d4] fix tester genesis date
+
+  [ Henrik Hautakoski ]
+  * [9b03276b] Release v3.1.3wax02
+
+ -- Henrik Hautakoski <henrik@eossweden.org>  Thu, 01 Jun 2023 12:30:08 +0200
+
 wax-leap (3.1.3wax01-1ubuntu1) UNRELEASED; urgency=medium
 
   [ Kevin Heifner ]
